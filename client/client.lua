@@ -46,13 +46,7 @@ insidemarkercheck = false -- Defualt insidemarker check (DO NOT CHANGE THIS ONE 
 --[[
 	vrp tunnels
 ]]
-
-vRPcar = {}
-Tunnel.bindInterface("vrp_CivAutoRepair",vRPcar)
-vRPserver = Tunnel.getInterface("vRP","vrp_CivAutoRepair")
-vRPcarServer = Tunnel.getInterface("vrp_CivAutoRepair","vrp_CivAutoRepair")
-local vRP = Proxy.getInterface("vRP")
-
+-- lel not needed.
 Citizen.CreateThread(function()
 	while repairing == true do
 		SetVehicleUndriveable(vehicle,true)
