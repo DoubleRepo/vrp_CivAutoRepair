@@ -60,6 +60,11 @@ CivRepairStation = {
 	{1148.8618164063,-776.84155273438,55.598728179932}
 }
 
+function DisplayHelpText(str)
+	SetTextComponentFormat("STRING")
+	AddTextComponentString(str)
+	DisplayHelpTextFromStringLabel(0, 0, 1, -1)
+end
 
 function DrawSpecialText(m_text, showtime)
 	SetTextEntry_2("STRING")

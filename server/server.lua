@@ -1,7 +1,11 @@
--- local Tunnel = module("vrp", "lib/Tunnel") -- not needed here.
+local Tunnel = module("vrp", "lib/Tunnel")
 local Proxy = module("vrp", "lib/Proxy")
 
 vRP = Proxy.getInterface("vRP")
+
+CvRP = {}
+Tunnel.bindInterface("vrp_CivAutoRepair",CvRP)
+Proxy.addInterface("vrp_CivAutoRepair",CvRP)
 --vRPclient = Tunnel.getInterface("vRP","vrp_CivAutoRepair") -- not needed here.
 
 --Settings--
@@ -23,7 +27,7 @@ function CvRP.checkMoney(user)
 	  vRP.tryPayment({player, price})
 	  TriggerClientEvent('Civrepair:success', _source, price)		
 	else
-	  moneyleft = price - playerMoney
+	  local moneyleft = price - playerMoney
 	  TriggerClientEvent('Civrepair:notenoughmoney', _source, moneyleft)
 	end
   else
@@ -40,7 +44,7 @@ function CvRP.CheckMoneyPremium(user)
 	  vRP.tryPayment({player, qprice})
 	  TriggerClientEvent('Civrepair:successpremium', _source, qprice)
 	else
-	  moneyleft = qprice - xPlayer.getMoney()
+	  local moneyleft = qprice - playerMoney
 	  TriggerClientEvent('Civrepair:notenoughmoneypremium', _source, moneyleft)
 	end
   else
@@ -61,7 +65,7 @@ AddEventHandler("Civrepair:Menu", function ()
 	menudata["Normal Repair"] = {function (choice)
 	  CvRP.CheckMoney(_source)
 	  vRP.closeMenu({_source})
-	end, "Health-Food :" .. status .. 
+	end}
 	menudata["Fast & Premium Repair"] = {function (choice)
 	  CvRP.CheckMoneyPremium(_source)
 	  vRP.closeMenu({_source})
