@@ -6,7 +6,6 @@ vRP = Proxy.getInterface("vRP")
 CvRP = {}
 Tunnel.bindInterface("vrp_CivAutoRepair",CvRP)
 Proxy.addInterface("vrp_CivAutoRepair",CvRP)
---vRPclient = Tunnel.getInterface("vRP","vrp_CivAutoRepair") -- not needed here.
 
 --Settings--
 
@@ -18,7 +17,7 @@ local qprice = 2000 -- Premium Price if you change this be sure to change the pr
 --[[ 
 	DO NOT EDIT THIS CODE BELOW!
 ]]
-function CvRP.checkMoney(user)
+function CvRP.CheckMoney(user)
   local _source = user
   local player = vRP.getUserId({_source})
   local playerMoney = vRP.getMoney({player})		
