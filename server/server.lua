@@ -8,13 +8,10 @@ vRPclient = Tunnel.getInterface("vRP","vrp_CivAutoRepair")
 CvRP = {}
 --Tunnel.bindInterface("vrp_CivAutoRepair",CvRPc)
 Proxy.addInterface("vrp_CivAutoRepair",CvRP)
-<<<<<<< HEAD
 
 local cfg = module("vrp", "cfg/base")
 local lang = Lang.new(module("vrp", "cfg/lang/"..cfg.lang) or {})
 local htmlEntities = module("vrp", "lib/htmlEntities")
-=======
->>>>>>> 2950d15806f63a9d2648936417c50d36e66d5128
 
 --Settings--
 
@@ -80,6 +77,7 @@ function CvRP.RepairGuy(user)
 			  local playerMoney = vRP.getMoney({nuser_id})	
 			  if(playerMoney >= amountt) then
 			    vRP.tryPayment({nuser_id, amountt})
+				vRP.giveMoney({player, amountt})
 			    TriggerClientEvent('Civrepair:successpremium', _source, amountt)
 			  else
 			    local moneyleft = amountt - playerMoney
