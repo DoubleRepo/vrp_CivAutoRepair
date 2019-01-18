@@ -57,11 +57,6 @@ function CvRP.CheckMoneyPremium(user)
   end
 end
 
-
-
-
-
-
 function CvRP.RepairGuy(user)
   local _source = user
   local player = vRP.getUserId({_source})
@@ -111,14 +106,11 @@ AddEventHandler("Civrepair:Menu", function ()
   menudata.css = {align = 'top-left'}
 
   if vRP.hasPermission({player,"vehicle.repair"}) then
-
 	menudata["Mechanic Repair Fast"] = {function (choice)
 	  CvRP.RepairGuy(_source)
 	  vRP.closeMenu({_source})
 	end}
-
   else
-
 	menudata["Normal Repair"] = {function (choice)
 	  CvRP.CheckMoney(_source)
 	  vRP.closeMenu({_source})
@@ -127,7 +119,6 @@ AddEventHandler("Civrepair:Menu", function ()
 	  CvRP.CheckMoneyPremium(_source)
 	  vRP.closeMenu({_source})
 	end}
-
   end
 	vRP.openMenu({_source, menudata})
 end)
