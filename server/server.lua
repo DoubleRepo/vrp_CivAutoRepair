@@ -8,13 +8,10 @@ vRPclient = Tunnel.getInterface("vRP","vrp_CivAutoRepair")
 CvRP = {}
 --Tunnel.bindInterface("vrp_CivAutoRepair",CvRPc)
 Proxy.addInterface("vrp_CivAutoRepair",CvRP)
-<<<<<<< HEAD
 
 local cfg = module("vrp", "cfg/base")
 local lang = Lang.new(module("vrp", "cfg/lang/"..cfg.lang) or {})
 local htmlEntities = module("vrp", "lib/htmlEntities")
-=======
->>>>>>> 2950d15806f63a9d2648936417c50d36e66d5128
 
 --Settings--
 
@@ -59,11 +56,6 @@ function CvRP.CheckMoneyPremium(user)
 	TriggerClientEvent('Civrepair:free', _source)
   end
 end
-
-
-
-
-
 
 function CvRP.RepairGuy(user)
   local _source = user
@@ -113,14 +105,11 @@ AddEventHandler("Civrepair:Menu", function ()
   menudata.css = {align = 'top-left'}
 
   if vRP.hasPermission({player,"vehicle.repair"}) then
-
 	menudata["Mechanic Repair Fast"] = {function (choice)
 	  CvRP.RepairGuy(_source)
 	  vRP.closeMenu({_source})
 	end}
-
   else
-
 	menudata["Normal Repair"] = {function (choice)
 	  CvRP.CheckMoney(_source)
 	  vRP.closeMenu({_source})
@@ -129,7 +118,6 @@ AddEventHandler("Civrepair:Menu", function ()
 	  CvRP.CheckMoneyPremium(_source)
 	  vRP.closeMenu({_source})
 	end}
-
   end
 	vRP.openMenu({_source, menudata})
 end)
